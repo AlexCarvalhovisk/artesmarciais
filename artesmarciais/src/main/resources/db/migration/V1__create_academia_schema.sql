@@ -21,7 +21,7 @@ CREATE TABLE alunos(
 CREATE TABLE modalidades(
     id BIGSERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL UNIQUE,
-    ativa BOOLEAN NOT NULL DEFAULT TRUE
+    ativo BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 CREATE TABLE graduacoes(
@@ -77,6 +77,6 @@ CREATE TABLE faturas_matriculas(
 CREATE TABLE assiduidade(
     id BIGSERIAL PRIMARY KEY,
     matricula_id BIGINT NOT NULL REFERENCES matriculas(id),
-    data_entrega TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    data_entrada TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     data_saida TIMESTAMP
 );

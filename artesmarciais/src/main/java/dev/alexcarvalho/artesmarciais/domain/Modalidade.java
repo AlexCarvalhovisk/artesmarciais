@@ -12,7 +12,7 @@ public class Modalidade {
 
     private String nome;
 
-    private Boolean atico = true;
+    private Boolean ativo = true;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class Modalidade {
         this.nome = nome;
     }
 
-    public Boolean getAtico() {
-        return atico;
+    public Boolean getAtivo() {
+        return ativo;
     }
 
-    public void setAtico(Boolean atico) {
-        this.atico = atico;
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 }
