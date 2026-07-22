@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:8080
+
+### Cadastrar aluno
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome" : "João da Silva",
+  "dataNascimento": "1995-08-15",
+  "sexo" : "M",
+  "telefone": "5133478787",
+  "celular": "51999999999",
+  "email": "joao@email.com",
+  "observacao": "Aluno iniciante",
+  "endereco": "Rua 6, Cefer 2",
+  "numero": "256",
+  "complemento": "É os guri",
+  "bairro": "Cefão",
+  "cidade": "Porto Alegre",
+  "estado": "RS",
+  "cep": "91150240"
+}
+
+### Listar alunos
+GET {{baseUrl}}/alunos
+
+### Listar alunos com paginação
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
+### Buscar aluno por ID
+GET {{baseUrl}}/alunos/1
+
+### Atualizar aluno
+PUT {{baseUrl}}/alunos/1
+Content-Type: application/json
+
+{
+  "nome" : "João da Silva atualizado",
+  "dataNascimento": "1995-08-15",
+  "sexo" : "F",
+  "telefone": "5133478787",
+  "celular": "51999999999",
+  "email": "joao@email.com",
+  "observacao": "Aluno iniciante",
+  "endereco": "Rua 6, Cefer 2",
+  "numero": "256",
+  "complemento": "É os guri",
+  "bairro": "Cefão",
+  "cidade": "Porto Alegre",
+  "estado": "RS",
+  "cep": "91150240"
+}
+
+### Excluir aluno
+DELETE {{baseUrl}}/alunos/1
