@@ -3,6 +3,7 @@ package dev.alexcarvalho.artesmarciais.service;
 import dev.alexcarvalho.artesmarciais.domain.Aluno;
 import dev.alexcarvalho.artesmarciais.dto.AlunoRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoResponse;
+import dev.alexcarvalho.artesmarciais.exception.RegraNegocioException;
 import dev.alexcarvalho.artesmarciais.repository.AlunoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +23,7 @@ public class AlunoService {
     //Metodo cadastrar vai ficar com a regra de conferir se o e-mail existe e como estou testando no IF abaixo e criando a regra no Repository.
     public AlunoResponse cadastrar(AlunoRequest request) {
         if(request.email() != null && alunoRepository.existsByEmail(request.email())){
-            throw new RuntimeException("Já existe um aluno cadastrado com esse e-mail");
+            throw new RegraNegocioException("Já existe um aluno cadastrado com esse e-mail");
         }
 
         Aluno aluno = request.toEntity();
@@ -56,6 +57,6 @@ public class AlunoService {
 
     //Como vou usar o findById para deletar e atualizar, criei antes o metodo abaixo para não ficar repetindo código.
     private Aluno buscarEntidadePorId(Long id) {
-        return alunoRepository.findById(id).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+        return alunoRepository.findById(id).orElseThrow(() -> new RegraNegocioException("Aluno não encontrado"));
     }
 }

@@ -53,3 +53,46 @@ Content-Type: application/json
 
 ### Excluir aluno
 DELETE {{baseUrl}}/alunos/1
+
+
+### Cadastrar aluno
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome" : "Maria Oliveira",
+  "dataNascimento": "1998-03-22",
+  "sexo" : "M",
+  "telefone": "5133478787",
+  "celular": "51999999999",
+  "email": "joao@email.com",
+  "observacao": "Aluno iniciante",
+  "endereco": "Rua 6, Cefer 2",
+  "numero": "256",
+  "complemento": "É os guri",
+  "bairro": "Cefão",
+  "cidade": "Porto Alegre",
+  "estado": "RS",
+  "cep": "91150240"
+}
+
+### Cadastrar aluno inválido
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome" : "",
+  "dataNascimento": "1998-03-22",
+  "sexo" : "Masculino",
+  "telefone": "5133478787",
+  "celular": "51999999999",
+  "email": "joao@email.com",
+  "observacao": "Aluno iniciante",
+  "endereco": "Rua 6, Cefer 2",
+  "numero": "256",
+  "complemento": "É os guri",
+  "bairro": "Cefão",
+  "cidade": "Porto Alegre",
+  "estado": "RS",
+  "cep": "91150240"
+}

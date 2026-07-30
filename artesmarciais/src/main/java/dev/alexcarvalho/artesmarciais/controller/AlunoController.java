@@ -3,6 +3,7 @@ package dev.alexcarvalho.artesmarciais.controller;
 import dev.alexcarvalho.artesmarciais.dto.AlunoRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoResponse;
 import dev.alexcarvalho.artesmarciais.service.AlunoService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class AlunoController {
     //Rotas do CRUD
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AlunoResponse cadastrar(@RequestBody AlunoRequest alunoRequest) {
+    public AlunoResponse cadastrar(@RequestBody @Valid AlunoRequest alunoRequest) {
         return alunoService.cadastrar(alunoRequest);
     }
 
@@ -38,7 +39,7 @@ public class AlunoController {
     }
 
     @PutMapping("/{id}")
-    public AlunoResponse atualizar(@PathVariable Long id, @RequestBody AlunoRequest alunoRequest) {
+    public AlunoResponse atualizar(@PathVariable Long id, @RequestBody @Valid AlunoRequest alunoRequest) {
         return alunoService.atualizar(id, alunoRequest);
     }
 
