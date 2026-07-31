@@ -1,10 +1,12 @@
 package dev.alexcarvalho.artesmarciais.service;
 
 import dev.alexcarvalho.artesmarciais.domain.Aluno;
+import dev.alexcarvalho.artesmarciais.dto.AlunoFiltroRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoResponse;
 import dev.alexcarvalho.artesmarciais.exception.RegraNegocioException;
 import dev.alexcarvalho.artesmarciais.repository.AlunoRepository;
+import dev.alexcarvalho.artesmarciais.specification.AlunoSpecification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -32,8 +34,12 @@ public class AlunoService {
     }
 
     //Aqui estou fazendo um select, mas preciso entender melhor como funciona.
-    public Page<AlunoResponse> listar(Pageable pageable) {
-        return alunoRepository.findAll(pageable).map(AlunoResponse::fromEntity);
+    //Aqui por causa do Specificator, alterei para funcionar o Filtro Request
+    public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable) {
+        //Abaixo vou deixar para mostrar como era antes
+        //return alunoRepository.findAll(pageable).map(AlunoResponse::fromEntity);
+        return alunoRepository.findAll(AlunoSpecification.comFiltros(filtro),
+                pageable).map(AlunoResponse::fromEntity);
     }
 
     public AlunoResponse buscarPorId(Long id) {

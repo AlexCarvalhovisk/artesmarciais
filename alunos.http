@@ -60,19 +60,19 @@ POST {{baseUrl}}/alunos
 Content-Type: application/json
 
 {
-  "nome" : "Maria Oliveira",
+  "nome" : "Vanessa Oliveira",
   "dataNascimento": "1998-03-22",
-  "sexo" : "M",
+  "sexo" : "F",
   "telefone": "5133478787",
   "celular": "51999999999",
-  "email": "joao@email.com",
-  "observacao": "Aluno iniciante",
+  "email": "vanessa@email.com",
+  "observacao": "Aluna já possui boa avaliação.",
   "endereco": "Rua 6, Cefer 2",
   "numero": "256",
   "complemento": "É os guri",
   "bairro": "Cefão",
-  "cidade": "Porto Alegre",
-  "estado": "RS",
+  "cidade": "Criciúma",
+  "estado": "SC",
   "cep": "91150240"
 }
 
@@ -96,3 +96,18 @@ Content-Type: application/json
   "estado": "RS",
   "cep": "91150240"
 }
+
+### Listar todos
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
+### Listar por nome
+GET {{baseUrl}}/alunos?nome=joao&page=0&size=10&sort=nome,asc
+
+### Listar por cidade
+GET {{baseUrl}}/alunos?cidade=Porto Alegre&page=0&size=10&sort=nome,asc
+
+### Listar por estado
+GET {{baseUrl}}/alunos?estado=RS&page=0&size=10&sort=nome,asc
+
+### Listar por email
+GET {{baseUrl}}/alunos?email=joao@email.com&page=0&size=10&sort=nome,asc

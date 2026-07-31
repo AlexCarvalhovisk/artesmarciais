@@ -1,5 +1,6 @@
 package dev.alexcarvalho.artesmarciais.controller;
 
+import dev.alexcarvalho.artesmarciais.dto.AlunoFiltroRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoResponse;
 import dev.alexcarvalho.artesmarciais.service.AlunoService;
@@ -28,8 +29,11 @@ public class AlunoController {
     }
 
     @GetMapping
-    public Page<AlunoResponse> listar(Pageable pageable) {
-        return alunoService.listar(pageable);
+    //Aqui vou deixar como estava antes do Specification
+    /*public Page<AlunoResponse> listar(Pageable pageable) {
+        return alunoService.listar(pageable);*/
+    public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable) {
+        return alunoService.listar(filtro, pageable);
     }
 
     //Sempre que uso interpolação como no caso abaixo do ID, tenho que usar a anotação PathVariable dentrp do metodo.
