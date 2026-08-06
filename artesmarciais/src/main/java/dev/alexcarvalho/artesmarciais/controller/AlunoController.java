@@ -1,5 +1,6 @@
 package dev.alexcarvalho.artesmarciais.controller;
 
+import dev.alexcarvalho.artesmarciais.doc.AlunoControllerDoc;
 import dev.alexcarvalho.artesmarciais.dto.AlunoFiltroRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoRequest;
 import dev.alexcarvalho.artesmarciais.dto.AlunoResponse;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/alunos")
-public class AlunoController {
+public class AlunoController implements AlunoControllerDoc {
 
     private final AlunoService alunoService;
 
