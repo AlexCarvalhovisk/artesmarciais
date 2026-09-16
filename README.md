@@ -7,7 +7,7 @@ Uma API REST completa e robusta para gerenciamento de academias e centros de art
 ## 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** Java 21
-* **Framework Principal:** Spring Boot 3
+* **Framework Principal:** Spring Boot
 * **Banco de Dados:** PostgreSQL
 * **Migrações de Banco:** Flyway (Versionamento e inserção de dados)
 * **Documentação:** Swagger / OpenAPI
